@@ -4,4 +4,4 @@
 
 3. In line 15, you need to provide a link to the loaded driver on your computer.
 
-4. In the code in lines 50 and 52, you should specify your own links to the download files folder.
+4. In the code in lines 49 and 51, you should specify your own links to the download files folder.
