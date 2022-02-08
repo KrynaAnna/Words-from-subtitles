@@ -1,6 +1,3 @@
-The program is designed to identify the most used words from the video, which are used with a delineated frequency in the text.
-
-
 1. Before running the script, you need to install the chrome driver relative to the user version of Google Chrome.
 
 2. For version 98.0.4758.81 the boot file is present in the repository.
