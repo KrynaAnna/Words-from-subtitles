@@ -8,7 +8,7 @@ def login_chrome():
     link = input('Enter video link ... ')
     link = link[8:]
 
-    browser = webdriver.Chrome('D:\chromedriver.exe')
+    browser = webdriver.Chrome('D:\chromedriver.exe')    # link for your folder with "chromedriver"
     browser.implicitly_wait(4)
     browser.get(f'https://downsub.com/?url=https%3A%2F%2F{link}')
     time.sleep(random.randrange(4, 6))
