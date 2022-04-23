@@ -1,10 +1,8 @@
-import requests
 import os
-import csv
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By
-import time, random
+import time
+import random
+
 
 def login_chrome():
     link = input('Enter video link ... ')
@@ -13,16 +11,17 @@ def login_chrome():
     browser = webdriver.Chrome('D:\chromedriver.exe')
     browser.implicitly_wait(4)
     browser.get(f'https://downsub.com/?url=https%3A%2F%2F{link}')
-    time.sleep(random.randrange(4,6))
+    time.sleep(random.randrange(4, 6))
 
-    like_button = browser.find_element_by_xpath('//*[@id="app"]/div/main/div/div[2]/div/div[1]/div[1]/div[2]/div[1]/button[2]').click()
-    time.sleep(random.randrange(5,8))
+    browser.find_element(value='//*[@id="app"]/div/main/div/div[2]/div/div[1]/div[1]/div[2]/div['
+                               '1]/button[2]').click()
+    time.sleep(random.randrange(5, 8))
+
 
 login_chrome()
 
 
 def get_words(filename):
-
     with open(filename, encoding="utf8") as file:
         text = file.read()
     text = text.replace("\n", " ")
@@ -31,7 +30,6 @@ def get_words(filename):
     words = text.split()
     words.sort()
     return words
-
 
 
 def get_words_dict(words):
@@ -44,8 +42,10 @@ def get_words_dict(words):
             words_dict[word] = 1
     return words_dict
 
+
 def main():
-    b,c = int(input('Enter the limits of the number of words in the text. Minimum ...')), int(input('Enter the limits of the number of words in the text. Maximum ...'))
+    b, c = int(input('Enter the limits of the number of words in the text. Minimum ...')), int(
+        input('Enter the limits of the number of words in the text. Maximum ...'))
     folder = os.listdir("C:/Users/kryna/Downloads")
     lastname = folder[-1]
     filename = f'C:/Users/kryna/Downloads/{lastname}'
@@ -58,14 +58,15 @@ def main():
         words_dict = get_words_dict(words)
         q = 0
         for word in words_dict:
-             x, y = (word.ljust(20), words_dict[word])
-             if int(y) in range(b, c):
+            x, y = (word.ljust(20), words_dict[word])
+            if int(y) in range(b, c):
                 print(x, y)
                 q = q + 1
-             else:
+            else:
                 continue
         print("Number of words in the text: %d" % len(words))
         print("Number of words selected:", q)
+
 
 if __name__ == "__main__":
     main()
